@@ -1,5 +1,6 @@
 # Runtime: 84 ms, faster than 46.49% of Python3 online submissions for Longest Substring Without Repeating Characters.
-# Memory Usage: 13.8 MB, less than 90.49% of Python3 online submissions for Longest Substring Without Repeating Characters.
+# Memory Usage: 13.8 MB, less than 90.49% of Python3 online submissions for
+#  Longest Substring Without Repeating Characters.
 
 
 class Solution:
