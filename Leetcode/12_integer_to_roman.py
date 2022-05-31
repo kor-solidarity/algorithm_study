@@ -40,6 +40,3 @@ class Solution:
             digit -= 1
 
         return answer
-
-
-print(Solution().intToRoman(58))

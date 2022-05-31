@@ -1,5 +1,6 @@
 # Runtime: 44 ms, faster than 28.36% of Python3 online submissions for Sqrt(x).
 # Memory Usage: 14.4 MB, less than 6.24% of Python3 online submissions for Sqrt(x).
+
 class Solution:
     def mySqrt(self, x: int) -> int:
         # 제곱근 구하기

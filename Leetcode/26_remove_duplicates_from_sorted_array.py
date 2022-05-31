@@ -10,5 +10,3 @@ class Solution:
                 length += 1
                 current_num = i
         return length
-
-Solution().removeDuplicates([1,1,2])

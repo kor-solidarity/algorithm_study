@@ -15,6 +15,3 @@ class Solution:
                 # count += 1
             counter += 1
         return counter
-
-
-Solution().removeElement([3, 2, 2, 3], 3)
