@@ -1,36 +1,25 @@
 # https://leetcode.com/problems/longest-palindromic-substring
-# Runtime: 944 ms, faster than 82.88% of Python3 online submissions for Longest Palindromic Substring.
-# Memory Usage: 13.8 MB, less than 66.19% of Python3 online submissions for Longest Palindromic Substring.
-
+# Runtime: 100 ms, Beats 97.67%
+# Memory: 13.9 MB, Beats 86.81%
 
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         # 가장 긴 대칭 섭스트링값 구하기
 
-        # 길이가 1 이하면 계산할 필요가 없다.
-        if len(s) <= 1:
+        # 포인터 확장 and 페일린드롬 판별
+        def expand(left: int, right: int) -> str:
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -= 1
+                right += 1
+            return s[left + 1:right]
+
+        # 역순으로 슬라이싱하여 모두 동일한 경우 페일린드롬에 해당하니 그대로 반환
+        if s == s[::-1]:
             return s
-
-        answer = ''
-        # 포문으로 기준점 하나씩 돌려가면서 퍼뜨린다.
-        for i in range(len(s)):
-            # 홀수 그리고 짝수일 경우 하나씩 돌아가면서 확인한다.
-            res = self.palindrome(s, i, i)
-            # 짝수
-            res_even = self.palindrome(s, i, i + 1)
-            # 짝수결과의 길이가 홀수보다 큰 경우 덮어씌운다.
-            if len(res) < len(res_even):
-                res = res_even
-            if len(answer) < len(res):
-                answer = res
-
-        return answer
-
-    def palindrome(self, s, start, end) -> str:
-        # start 와 end 는 각각 벌려질 기준 인덱스다.
-
-        # 서로 안맞을때까지 인덱스 끝까지 돌리는거
-        while start >= 0 and end < len(s) and s[start] == s[end]:
-            start -= 1
-            end += 1
-        return s[start + 1:end]
+        result = ''
+        for i in range(0, len(s) - 1):
+            result = max(result,
+                         expand(i, i + 1),
+                         expand(i, i + 2),
+                         key=len)
+        return result

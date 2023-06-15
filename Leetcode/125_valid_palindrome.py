@@ -8,7 +8,7 @@ class Solution:
 
         # 글자별로 자른다.
         for c in s:
-            # 해당 스트링이 알파벳·숫자 확인하는 함수
+            # 해당 스트링이 문자·숫자인지 확인하는 내장함수
             if c.isalnum():
                 # 해당되면 리스트에 추가.
                 letters.append(c.lower())
